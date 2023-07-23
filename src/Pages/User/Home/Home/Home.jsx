@@ -1,9 +1,10 @@
 import PromotionCard from "../PromotionCard/PromotionCard";
+import Reviews from "../Reviews/Reviews";
 
 const Home = () => {
   return (
     <div className="pt-16">
-      <h3>Home Page</h3>
+      <Reviews></Reviews>
       <PromotionCard></PromotionCard>
     </div>
   );
