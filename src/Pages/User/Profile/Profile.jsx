@@ -23,7 +23,7 @@ const Profile = () => {
         <p className="text-gray-600">Address: </p>
 
         <button className="px-4 py-2 mt-4 bg-green-500 text-white rounded hover:bg-green-600">
-          <Link to={`/college/${user.email}`}>More Details</Link>
+          <Link to={`/profile/${user.email}`}>More Details</Link>
         </button>
       </div>
     </div>
