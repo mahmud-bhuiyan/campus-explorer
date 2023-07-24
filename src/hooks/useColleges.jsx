@@ -6,7 +6,7 @@ const useColleges = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/colleges")
+    fetch("https://campus-explorer-server.vercel.app/colleges")
       .then((res) => res.json())
       .then(
         (data) => {

@@ -8,7 +8,7 @@ const CollegeDetailsPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/college/${id}`)
+    fetch(`https://campus-explorer-server.vercel.app/colleges/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCollegeData(data);

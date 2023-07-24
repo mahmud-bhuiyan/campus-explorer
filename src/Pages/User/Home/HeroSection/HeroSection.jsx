@@ -4,19 +4,19 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const HeroSection = () => {
   const carouselData = [
     {
-      imageUrl: "/src/assets/Hero/2.jpg",
+      imageUrl: "https://i.ibb.co/XD3C13H/2.jpg",
       text: "WELCOME TO UNIVERSITY",
       subtext:
         "Explore a World of Knowledge and Experience Quality Education for a Brighter Future",
     },
     {
-      imageUrl: "/src/assets/Hero/1.jpg",
+      imageUrl: "https://i.ibb.co/gwGCvjB/1.jpg",
       text: "EDUCATION MASTER",
       subtext:
         "Unlock Your Potential and Lead the Way towards Empowering Future Generations",
     },
     {
-      imageUrl: "/src/assets/Hero/3.jpg",
+      imageUrl: "https://i.ibb.co/28Rpzdk/3.jpg",
       text: "ADMISSION OPEN 2023",
       subtext:
         "Open the Doors to Exciting Opportunities and Enroll in Our Diverse Range of Programs",

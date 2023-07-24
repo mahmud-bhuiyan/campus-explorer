@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import useColleges from "../../../hooks/useColleges";
 import SectionHeaders from "../../../components/SectionHeaders";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const CollegesPage = () => {
   const { colleges, loading, error } = useColleges();
@@ -32,6 +34,11 @@ const CollegesPage = () => {
             </figure>
             <div className="card-body md:p-3">
               <h2 className="card-title text-xl font-bold">{college.name}</h2>
+              <Rating
+                style={{ maxWidth: 120 }}
+                value={college.rating}
+                readOnly
+              />
 
               <div>
                 <h3 className="sm:text-md">
