@@ -4,7 +4,6 @@ import useColleges from "../../../../hooks/useColleges";
 
 const CollegeSection = () => {
   const { colleges, loading, error } = useColleges();
-  console.log(colleges);
 
   if (loading) {
     return (
@@ -24,60 +23,57 @@ const CollegeSection = () => {
         {colleges.slice(0, 3).map((college, index) => (
           <div key={index} className="card bg-base-100 shadow-xl">
             <figure>
-              <img src={college.image} alt={college.name} className="w-full" />
+              <img
+                src={college.image}
+                alt={college.name}
+                className="w-full h-52"
+              />
             </figure>
             <div className="card-body md:p-3">
-              <h2 className="card-title text-2xl font-bold mb-2">
-                {college.name}
-              </h2>
+              <h2 className="card-title text-xl font-bold">{college.name}</h2>
 
-              <div className="mb-2">
-                <h3 className="sm:text-lg">
+              <div>
+                <h3 className="sm:text-md">
                   Admission Test Date:{" "}
                   <span className="font-bold">{college.admission.date}</span>
                 </h3>
               </div>
 
-              <div className="mb-2">
-                <h3 className="text-lg font-bold mb-2">Events</h3>
+              <div>
+                <h3 className="text-md font-bold mb-2">Events</h3>
                 {college.events.map((event, eventIndex) => (
                   <div key={eventIndex} className="mb-2">
                     <p className="text-sm font-medium">{event.name}</p>
                     <p className="text-xs text-gray-600">{event.date}</p>
-                    <p className="text-sm">{event.description}</p>
                   </div>
                 ))}
               </div>
 
               <div>
-                <h3 className="text-lg font-bold mb-2">Research Works</h3>
+                <h3 className="text-md font-bold mb-2">Research Works</h3>
                 {college.research_works.map((research, researchIndex) => (
                   <div key={researchIndex} className="mb-2">
                     <p className="text-sm font-medium">{research.title}</p>
                     <p className="text-xs">
-                      Authors: {research.authors.join(", ")}
+                      Authors: {research.authors.join(", ")}{" "}
+                      <a
+                        href={research.link}
+                        className="text-sm text-blue-500 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Read more
+                      </a>
                     </p>
-                    <a
-                      href={research.link}
-                      className="text-sm text-blue-500 hover:underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Read more
-                    </a>
                   </div>
                 ))}
               </div>
 
               <div>
-                <h3 className="text-lg font-bold mb-2">Sports Categories</h3>
-                <ul className="list-disc list-inside">
-                  {college.sports_categories.map((sport, sportIndex) => (
-                    <li key={sportIndex} className="text-sm">
-                      {sport}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-md font-bold mb-2">Sports Categories</h3>
+                <p className="text-sm">
+                  {college.sports_categories.join(", ")}
+                </p>
               </div>
 
               <div className="mt-2">
