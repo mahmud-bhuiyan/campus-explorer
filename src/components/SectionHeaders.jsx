@@ -1,6 +1,6 @@
 const SectionHeaders = ({ header, text }) => {
   return (
-    <div>
+    <div className="text-center pt-10">
       <h3 className="my-8 Py-6 font-bold text-2xl uppercase">
         {header.split(" ").map((word, wordIndex) =>
           wordIndex === header.split(" ").length - 1 ? (
