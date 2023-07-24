@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "../Home/Reviews/Reviews";
+import { Helmet } from "react-helmet-async";
 
 const CollegeDetailsPage = () => {
   const { id } = useParams();
@@ -8,7 +9,7 @@ const CollegeDetailsPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://campus-explorer-server.vercel.app/colleges/${id}`)
+    fetch(`https://campus-explorer-server.vercel.app/college/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCollegeData(data);
@@ -30,6 +31,9 @@ const CollegeDetailsPage = () => {
 
   return (
     <div className="pt-2">
+      <Helmet>
+        <title>College | Campus Explorer</title>
+      </Helmet>
       <div className="bg-gray-100 min-h-screen pt-16">
         <div className="p-4 md:p-8">
           <div className="grid md:grid-cols-2 items-center">

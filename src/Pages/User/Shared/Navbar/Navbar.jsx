@@ -1,8 +1,22 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import logo from "../../../../assets/Logo/ce-favicon.png";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {
+        console.log("Sign-out successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -37,21 +51,53 @@ const Navbar = () => {
           My College
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/register" activeclassname="active-link">
-          Register
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/login" activeclassname="active-link">
-          Login
-        </NavLink>
-      </li>
-      <li>
-        <Link to="/user">
-          <FaUser />
-        </Link>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <button onClick={handleLogOut}>Logout</button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <NavLink to="/signup" activeclassname="active-link">
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" activeclassname="active-link">
+              Login
+            </NavLink>
+          </li>
+        </>
+      )}
+
+      {user?.photoURL ? (
+        <>
+          <li>
+            <Link
+              to="/profile"
+              title={user.displayName}
+              className="flex items-center"
+            >
+              <img
+                src={user.photoURL}
+                alt={user.displayName}
+                className="w-4 h-4 rounded-full"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link to="/profile">{user.displayName}</Link>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link to="/profile">
+            <FaUser />
+          </Link>
+        </li>
+      )}
     </>
   );
 

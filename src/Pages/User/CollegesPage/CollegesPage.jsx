@@ -3,6 +3,7 @@ import useColleges from "../../../hooks/useColleges";
 import SectionHeaders from "../../../components/SectionHeaders";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { Helmet } from "react-helmet-async";
 
 const CollegesPage = () => {
   const { colleges, loading, error } = useColleges();
@@ -19,6 +20,9 @@ const CollegesPage = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>Colleges | Campus Explorer</title>
+      </Helmet>
       <div className="pt-10">
         <SectionHeaders header={"All Institutes"}></SectionHeaders>
       </div>
