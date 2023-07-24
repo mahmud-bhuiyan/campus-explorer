@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import SectionHeaders from "../../../../components/SectionHeaders";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -20,11 +21,8 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className="text-center m-16 mx-auto">
-      <h3 className="my-8 py-6 font-bold text-3xl">
-        USERS <br /> <span className="text-[#6DA9E4]">TESTIMONIALS</span>
-      </h3>
-
+    <div className="text-center my-8 mx-auto">
+      <SectionHeaders header={"User testimonials"}></SectionHeaders>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -67,7 +65,7 @@ const Reviews = () => {
                         readOnly
                       />
                     </div>
-                    <h5 className="mt-4 mb-2">- {review.user}</h5>
+                    <h5 className="mt-4 mb-3">- {review.user}</h5>
                   </div>
                 </div>
               </div>
